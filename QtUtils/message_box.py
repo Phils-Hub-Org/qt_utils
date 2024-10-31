@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QApplication, QMessageBox
+from PySide6.QtWidgets import QMessageBox
 
 def displayMessageBox(message: str, x: int = None, y: int = None) -> None:
     msgBox = QMessageBox()
@@ -32,12 +32,3 @@ def displayYesNoMessageBox(message: str) -> bool:
     msgBox.setDefaultButton(QMessageBox.No)
     result = msgBox.exec()
     return result == QMessageBox.Yes
-
-def getScreenDimms() -> tuple[int, int]:
-    screen = QApplication.primaryScreen()
-    screenGeometry = screen.geometry()
-
-    screenWidth = screenGeometry.width()
-    screenHeight = screenGeometry.height()
-
-    return screenWidth, screenHeight
