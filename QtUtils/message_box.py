@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QMessageBox
 
-def displayMessageBox(message: str, x: int = None, y: int = None) -> None:
+def displayMessageBox(screenWidth: int, screenHeight: int, message: str, x: int = None, y: int = None) -> None:
     msgBox = QMessageBox()
     msgBox.setIcon(QMessageBox.Information)
     msgBox.setWindowTitle("Information")
@@ -8,8 +8,6 @@ def displayMessageBox(message: str, x: int = None, y: int = None) -> None:
     msgBox.setStandardButtons(QMessageBox.Ok)
     
     if x is None or y is None:
-        screenWidth, screenHeight = getScreenDimms()
-
         if x is None:
             # Get screen geometry and center horizontally
             msgBox_width = msgBox.sizeHint().width()
