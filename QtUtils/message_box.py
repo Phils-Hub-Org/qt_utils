@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QMessageBox
 def displayMessageBox(screenWidth: int, screenHeight: int, message: str, x: int = None, y: int = None) -> None:
     msgBox = QMessageBox()
     msgBox.setIcon(QMessageBox.Information)
-    msgBox.setWindowTitle("Information")
+    msgBox.setWindowTitle('Information')
     msgBox.setText(message)
     msgBox.setStandardButtons(QMessageBox.Ok)
     
@@ -24,9 +24,20 @@ def displayMessageBox(screenWidth: int, screenHeight: int, message: str, x: int 
 def displayYesNoMessageBox(message: str) -> bool:
     msgBox = QMessageBox()
     msgBox.setIcon(QMessageBox.Question)
-    msgBox.setWindowTitle("Confirmation")
+    msgBox.setWindowTitle('Confirmation')
     msgBox.setText(message)
     msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
     msgBox.setDefaultButton(QMessageBox.No)
     result = msgBox.exec()
     return result == QMessageBox.Yes
+
+if __name__ == '__main__':
+    import sys
+    from PySide6.QtWidgets import QApplication
+
+    app = QApplication([])
+
+    displayMessageBox(1920, 1080, 'Hello, World!')
+    # displayYesNoMessageBox('Are you sure?')
+
+    sys.exit(app.exec())

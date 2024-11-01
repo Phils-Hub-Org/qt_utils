@@ -19,3 +19,4 @@ if __name__ == '__main__':
     print(getScreenDimensions())  # (1920, 1080)
 
     sys.exit(app.exec())
+    
