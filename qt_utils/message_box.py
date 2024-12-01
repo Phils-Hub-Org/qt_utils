@@ -1,6 +1,14 @@
 from PySide6.QtWidgets import QMessageBox
 
-def displayMessageBox(screenWidth: int, screenHeight: int, message: str, x: int = None, y: int = None) -> None:
+def displayMessageBox(message: str) -> None:
+    msgBox = QMessageBox()
+    msgBox.setIcon(QMessageBox.Information)
+    msgBox.setWindowTitle('Information')
+    msgBox.setText(message)
+    msgBox.setStandardButtons(QMessageBox.Ok)
+    msgBox.exec()
+
+def displayMessageBox2(screenWidth: int, screenHeight: int, message: str, x: int = None, y: int = None) -> None:
     msgBox = QMessageBox()
     msgBox.setIcon(QMessageBox.Information)
     msgBox.setWindowTitle('Information')
@@ -37,7 +45,8 @@ if __name__ == '__main__':
 
     app = QApplication([])
 
-    displayMessageBox(1920, 1080, 'Hello, World!')
+    displayMessageBox('Hello, World!')
+    # displayMessageBox2(1920, 1080, 'Hello, World!')
     # displayYesNoMessageBox('Are you sure?')
 
     sys.exit(app.exec())
